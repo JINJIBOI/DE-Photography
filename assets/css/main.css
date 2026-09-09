@@ -4274,3 +4274,118 @@ input, select, textarea {
   outline: 2px dashed rgba(255, 255, 255, 0.8);
   outline-offset: 6px;
 }
+
+.grid-gallery a {
+	border: 0;
+}
+
+.gallery-lightbox {
+	align-items: center;
+	background: rgba(15, 17, 24, 0.94);
+	display: flex;
+	inset: 0;
+	justify-content: center;
+	opacity: 0;
+	padding: 4rem 6rem;
+	pointer-events: none;
+	position: fixed;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	visibility: hidden;
+	z-index: 20000;
+}
+
+.is-gallery-visible .gallery-lightbox {
+	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
+}
+
+.gallery-lightbox-content {
+	margin: 0;
+	max-height: 100%;
+	max-width: 100%;
+	text-align: center;
+}
+
+.gallery-lightbox-content img {
+	display: block;
+	max-height: calc(100vh - 8rem);
+	max-width: min(82vw, 1100px);
+	object-fit: contain;
+	width: auto;
+}
+
+.gallery-lightbox-content figcaption {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 0.8em;
+	margin-top: 0.75rem;
+}
+
+.gallery-lightbox button {
+	align-items: center;
+	background: rgba(255, 255, 255, 0.12);
+	border: 0;
+	border-radius: 50%;
+	color: #fff;
+	display: flex;
+	font-family: Arial, sans-serif;
+	font-size: 2rem;
+	height: 3rem;
+	justify-content: center;
+	line-height: 1;
+	padding: 0;
+	position: absolute;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	width: 3rem;
+	z-index: 1;
+}
+
+.gallery-lightbox button:hover,
+.gallery-lightbox button:focus {
+	background: rgba(255, 255, 255, 0.25);
+	color: #fff !important;
+	transform: scale(1.08);
+}
+
+.gallery-lightbox-close {
+	right: 1.5rem;
+	top: 1.5rem;
+}
+
+.gallery-lightbox-previous {
+	left: 1.5rem;
+}
+
+.gallery-lightbox-next {
+	right: 1.5rem;
+}
+
+@media screen and (max-width: 736px) {
+	.gallery-lightbox {
+		padding: 3.5rem 3.5rem 2.5rem;
+	}
+
+	.gallery-lightbox-content img {
+		max-height: calc(100vh - 6rem);
+		max-width: 75vw;
+	}
+
+	.gallery-lightbox button {
+		font-size: 1.5rem;
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+
+	.gallery-lightbox-close {
+		right: 1rem;
+		top: 1rem;
+	}
+
+	.gallery-lightbox-previous {
+		left: 0.5rem;
+	}
+
+	.gallery-lightbox-next {
+		right: 0.5rem;
+	}
+}

@@ -142,4 +142,60 @@
 
 			});
 
+		// Gallery lightbox.
+			var $lightbox = $('#gallery-lightbox'),
+				$lightboxImage = $lightbox.find('img'),
+				$lightboxCaption = $lightbox.find('figcaption'),
+				$galleryLinks = $('.grid-gallery a'),
+				galleryIndex = 0;
+
+			function showGalleryImage(index) {
+				galleryIndex = (index + $galleryLinks.length) % $galleryLinks.length;
+
+				var $link = $galleryLinks.eq(galleryIndex),
+					$image = $link.find('img');
+
+				$lightboxImage.attr({
+					src: $link.attr('href'),
+					alt: $image.attr('alt')
+				});
+				$lightboxCaption.text($image.attr('alt'));
+			}
+
+			$galleryLinks.on('click', function(event) {
+				event.preventDefault();
+				showGalleryImage($galleryLinks.index(this));
+				$lightbox.attr('aria-hidden', 'false');
+				$body.addClass('is-gallery-visible');
+			});
+
+			$lightbox.on('click', function(event) {
+				if ($(event.target).is($lightbox) || $(event.target).hasClass('gallery-lightbox-close')) {
+					$lightbox.attr('aria-hidden', 'true');
+					$body.removeClass('is-gallery-visible');
+				}
+			});
+
+			$lightbox.find('.gallery-lightbox-previous').on('click', function() {
+				showGalleryImage(galleryIndex - 1);
+			});
+
+			$lightbox.find('.gallery-lightbox-next').on('click', function() {
+				showGalleryImage(galleryIndex + 1);
+			});
+
+			$body.on('keydown', function(event) {
+				if (!$body.hasClass('is-gallery-visible'))
+					return;
+
+				if (event.keyCode == 37)
+					showGalleryImage(galleryIndex - 1);
+				else if (event.keyCode == 39)
+					showGalleryImage(galleryIndex + 1);
+				else if (event.keyCode == 27) {
+					$lightbox.attr('aria-hidden', 'true');
+					$body.removeClass('is-gallery-visible');
+				}
+			});
+
 })(jQuery);
