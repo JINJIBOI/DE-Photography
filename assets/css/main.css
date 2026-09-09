@@ -4389,3 +4389,6 @@ input, select, textarea {
 		right: 0.5rem;
 	}
 }
+#about {
+	text-align: justify;
+}
