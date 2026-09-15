@@ -74,6 +74,13 @@
 			margin-bottom: (_size(element-margin) - 0.5em);
 			padding: 0;
 
+			ul {
+				border-left: solid 2px _palette(border2);
+				list-style: none;
+				margin: 0;
+				padding: 0 0 0 1em;
+			}
+
 			li {
 				padding: 0;
 
