@@ -4422,19 +4422,22 @@ input, select, textarea {
 .instagram-features {
 	display: flex;
 	flex-wrap: nowrap;
-	gap: 1.5em;
-	margin: 0;
+	gap: 1em;
+	margin: 0 auto;
+	max-width: 100%;
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 	scrollbar-width: none;
+	width: 100%;
 }
 
 .instagram-features article {
 	box-sizing: border-box;
-	flex: 0 0 min(calc(540px + 3.5em), 100%);
+	flex: 0 0 min(calc(540px + 2em), 100%);
 	margin: 0;
 	min-width: 0;
+	padding: 1em;
 	scroll-snap-align: start;
 	width: auto;
 }
