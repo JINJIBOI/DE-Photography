@@ -198,4 +198,43 @@
 				}
 			});
 
+		// Instagram carousel.
+			var $instagramTrack = $('.instagram-features'),
+				$instagramPrevious = $('[data-instagram-previous]'),
+				$instagramNext = $('[data-instagram-next]');
+
+			if ($instagramTrack.length > 0) {
+				function scrollInstagram(direction) {
+					var track = $instagramTrack[0],
+						card = $instagramTrack.children('article').first()[0],
+						cards = $instagramTrack.children('article'),
+						gap = parseFloat(window.getComputedStyle(track).columnGap) || 0,
+						step = card.getBoundingClientRect().width + gap,
+						maxScroll = track.scrollWidth - track.clientWidth;
+
+					if (direction > 0 && (maxScroll <= 1 || track.scrollLeft >= maxScroll - 1)) {
+						track.appendChild(cards[0]);
+						track.scrollLeft = Math.max(0, track.scrollLeft - step);
+					}
+					else if (direction < 0 && track.scrollLeft <= 1) {
+						track.insertBefore(cards[cards.length - 1], cards[0]);
+						track.scrollLeft += step;
+					}
+
+					track.scrollBy({
+						left: direction * step,
+						behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+					});
+				}
+
+				$instagramPrevious.on('click', function() {
+					scrollInstagram(-1);
+				});
+
+				$instagramNext.on('click', function() {
+					scrollInstagram(1);
+				});
+
+			}
+
 })(jQuery);
