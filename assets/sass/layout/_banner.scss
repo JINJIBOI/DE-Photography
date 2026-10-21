@@ -36,7 +36,7 @@
 			}
 		}
 
-		h2 {
+		h1 {
 			@include vendor('transition', (
 				'opacity 0.5s ease',
 				'transform 0.5s ease',
@@ -110,7 +110,7 @@
 				}
 			}
 
-			h2 {
+			h1 {
 				font-size: 1.5em;
 			}
 
@@ -125,7 +125,7 @@
 				opacity: 0;
 			}
 
-			h2 {
+			h1 {
 				opacity: 0;
 				@include vendor('transform', 'translateX(0.25em)');
 				@include vendor('filter', 'blur(2px)');

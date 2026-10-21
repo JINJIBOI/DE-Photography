@@ -3107,19 +3107,23 @@ input, select, textarea {
 		z-index: 10000;
 	}
 
-		#header h1 {
+		#header .site-title {
 			-moz-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			-webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			-ms-transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			transition: opacity 0.2s ease-in-out, visibility 0.2s;
 			border-bottom: 0;
 			font-size: 0.8em;
+			font-family: Raleway, Helvetica, sans-serif;
+			font-weight: 700;
+			letter-spacing: 0.1em;
 			margin-bottom: 0;
 			opacity: 1;
+			text-transform: uppercase;
 			visibility: visible;
 		}
 
-			#header h1 a {
+			#header .site-title a {
 				border: 0;
 			}
 
@@ -3188,7 +3192,7 @@ input, select, textarea {
 			background-color: transparent;
 		}
 
-			#header.alt h1 {
+			#header.alt .site-title {
 				opacity: 0;
 				visibility: hidden;
 			}
@@ -3438,7 +3442,7 @@ input, select, textarea {
 				width: 2.25em;
 			}
 
-		#banner h2 {
+		#banner h1 {
 			-moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease, -moz-filter 0.25s ease;
 			-webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-filter 0.25s ease;
 			-ms-transition: opacity 0.5s ease, -ms-transform 0.5s ease, -ms-filter 0.25s ease;
@@ -3531,7 +3535,7 @@ input, select, textarea {
 						font-size: 1.5em;
 					}
 
-				#banner h2 {
+				#banner h1 {
 					font-size: 1.5em;
 				}
 
@@ -3549,7 +3553,7 @@ input, select, textarea {
 			opacity: 0;
 		}
 
-		body.is-preload #banner h2 {
+		body.is-preload #banner h1 {
 			opacity: 0;
 			-moz-transform: translateX(0.25em);
 			-webkit-transform: translateX(0.25em);
@@ -3584,7 +3588,7 @@ input, select, textarea {
 			width: 55em;
 		}
 
-		#wrapper > header h2 {
+		#wrapper > header h1 {
 			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
 			font-size: 2em;
 			margin-bottom: 0.8em;
@@ -3641,7 +3645,7 @@ input, select, textarea {
 			margin-bottom: -2.5em;
 		}
 
-			#wrapper > header h2 {
+			#wrapper > header h1 {
 				font-size: 1.25em;
 			}
 
