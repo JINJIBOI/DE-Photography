@@ -204,26 +204,6 @@
 				$instagramNext = $('[data-instagram-next]');
 
 			if ($instagramTrack.length > 0) {
-				function fitInstagramCards() {
-					var track = $instagramTrack[0],
-						cards = $instagramTrack.children('article'),
-						card = cards.first()[0],
-						gap = parseFloat(window.getComputedStyle(track).columnGap) || 0,
-						cardWidth,
-						availableWidth,
-						visibleCount;
-
-					track.style.width = '';
-					cardWidth = card.getBoundingClientRect().width;
-					availableWidth = track.parentElement.clientWidth;
-					visibleCount = Math.min(
-						cards.length,
-						Math.max(1, Math.floor((availableWidth + gap) / (cardWidth + gap)))
-					);
-
-					track.style.width = (visibleCount * cardWidth + (visibleCount - 1) * gap) + 'px';
-				}
-
 				function scrollInstagram(direction) {
 					var track = $instagramTrack[0],
 						card = $instagramTrack.children('article').first()[0],
@@ -254,9 +234,6 @@
 				$instagramNext.on('click', function() {
 					scrollInstagram(1);
 				});
-
-				$window.on('resize', fitInstagramCards);
-				fitInstagramCards();
 			}
 
 })(jQuery);
