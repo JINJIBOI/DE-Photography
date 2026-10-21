@@ -4507,6 +4507,7 @@ input, select, textarea {
 
 .instagram-features iframe {
 	border-radius: 0.85rem;
+	max-height: 640px;
 	max-width: 100%;
 	width: 100%;
 }
@@ -4563,6 +4564,10 @@ input, select, textarea {
 
 	.instagram-features article {
 		flex-basis: 100%;
+	}
+
+	.instagram-features iframe {
+		max-height: none;
 	}
 
 	.instagram-carousel-controls {
