@@ -88,7 +88,7 @@
 								<p>Commercial photography of Ethan Werstler on Election Day, photographed by Dallin Everitt in Connecticut.</p>
 							</div>
 						</header>
-						<article class="grid-gallery" id="election-day-gallery">
+						<article class="grid-gallery">
 							<a href="/images/ethan-werstler/ElectionDay2026/Election Day-001.jpg">
 								<img src="/images/ethan-werstler/ElectionDay2026/Election Day-001.jpg" alt="Ethan Werstler Election Day photography" />
 							</a>
@@ -396,7 +396,7 @@
 							</a>
 						</article>
 						<div id="load-more-container">
-							<button class="button" id="load-more" type="button" aria-controls="election-day-gallery" hidden>Load More Photos</button>
+							<button class="button" id="load-more" type="button" aria-controls="grid-gallery" hidden>Load More Photos</button>
 						</div>
 
 								<div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
@@ -473,7 +473,7 @@
 			<script src="/assets/js/util.js"></script>
 			<script src="/assets/js/main.js"></script>
 			<script>
-				const galleryPhotos = Array.from(document.querySelectorAll('#election-day-gallery a'));
+				const galleryPhotos = Array.from(document.querySelectorAll('.grid-gallery a'));
 				const loadMoreButton = document.getElementById('load-more');
 				const photoBatchSize = 20;
 				let visiblePhotoCount = Math.min(photoBatchSize, galleryPhotos.length);
