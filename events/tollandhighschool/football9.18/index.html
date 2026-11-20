@@ -32,6 +32,17 @@
 		<link rel="icon" href="../../../images/favicon.ico" sizes="any">
 		<link rel="stylesheet" href="../../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<style>
+			.grid-gallery a[hidden],
+			#load-more[hidden] {
+				display: none;
+			}
+
+			#load-more-container {
+				margin: -1rem auto 3rem;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -189,6 +200,26 @@
 			<script src="../../../assets/js/breakpoints.min.js"></script>
 			<script src="../../../assets/js/util.js"></script>
 			<script src="../../../assets/js/main.js"></script>
+			<script>
+				const galleryPhotos = Array.from(document.querySelectorAll('#election-day-gallery a'));
+				const loadMoreButton = document.getElementById('load-more');
+				const photoBatchSize = 20;
+				let visiblePhotoCount = Math.min(photoBatchSize, galleryPhotos.length);
+
+				galleryPhotos.slice(visiblePhotoCount).forEach((photo) => {
+					photo.hidden = true;
+				});
+
+				loadMoreButton.hidden = galleryPhotos.length <= visiblePhotoCount;
+				loadMoreButton.addEventListener('click', () => {
+					const nextVisiblePhotoCount = Math.min(visiblePhotoCount + photoBatchSize, galleryPhotos.length);
+					galleryPhotos.slice(visiblePhotoCount, nextVisiblePhotoCount).forEach((photo) => {
+						photo.hidden = false;
+					});
+					visiblePhotoCount = nextVisiblePhotoCount;
+					loadMoreButton.hidden = visiblePhotoCount >= galleryPhotos.length;
+				});
+			</script>
 
 	</body>
 </html>
